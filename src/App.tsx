@@ -20,14 +20,7 @@ function App() {
 				<Layout>
 					<div className='routes'>
 						<Routes>
-							<Route
-								path='/'
-								element={<Homepage />}
-							/>
-							<Route
-								path='/exchanges'
-								element={<Exchanges />}
-							/>
+							<Route path='/' element={<Homepage />} />
 							<Route
 								path='/cryptocurrencies'
 								element={<Cryptocurrencies />}
@@ -36,17 +29,16 @@ function App() {
 								path='/crypto/:coinId'
 								element={<CryptoDetails />}
 							/>
-							<Route
-								path='/news'
-								element={<News />}
-							/>
+							<Route path='/exchanges' element={<Exchanges />} />
+							<Route path='/news' element={<News />} />
 						</Routes>
 					</div>
 				</Layout>
 				<div className='footer'>
 					<Typography.Title
 						level={5}
-						style={{ color: 'white', textAlign: 'center' }}>
+						style={{ color: 'white', textAlign: 'center' }}
+					>
 						Cryptoverse <br />
 						All rights reserved
 					</Typography.Title>
