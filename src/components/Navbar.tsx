@@ -26,6 +26,7 @@ function Navbar() {
 					<Link to='/'>Cryptoverse</Link>
 				</Typography.Title>
 			</div>
+            {/* TODO: refactor base on this link: https://stackoverflow.com/questions/76549798/warning-antd-menu-children-will-be-removed-in-next-major-version-please-u */}
 			<Menu
 				theme='dark'
 				expandIcon={<MenuOutlined />}>
@@ -35,11 +36,11 @@ function Navbar() {
 				<Menu.Item icon={<FundOutlined />}>
 					<Link to='/cryptocurrencies'>Cryptocurrencies</Link>
 				</Menu.Item>
-				<Menu.Item icon={<MoneyCollectOutlined />}>
-					<Link to='/exchanges'>Exchanges</Link>
-				</Menu.Item>
 				<Menu.Item icon={<BulbOutlined />}>
 					<Link to='/news'>News</Link>
+				</Menu.Item>
+				<Menu.Item icon={<MoneyCollectOutlined />}>
+					<Link to='/exchanges'>Exchanges</Link>
 				</Menu.Item>
 			</Menu>
 		</div>

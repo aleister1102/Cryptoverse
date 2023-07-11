@@ -5,7 +5,7 @@ import { Card, Row, Col, Image, Input } from 'antd'
 
 import { useGetCryptosQuery } from '../services/cryptoApi'
 
-interface Crypto {
+export interface Crypto {
 	uuid: string
 	symbol: string
 	name: string
@@ -24,15 +24,10 @@ type CryptocurrenciesProps = {
 }
 
 function Cryptocurrencies({ simplified }: CryptocurrenciesProps) {
-	const count = simplified ? 10 : 100
+	const count = simplified ? 12 : 100
 	const { data: cryptoList, isFetching } = useGetCryptosQuery(count)
 	const [cryptos, setCryptos] = useState([])
 	const [searchTerm, setSearchTerm] = useState('')
-
-	console.log(
-		'🌸 ~ file: Cryptocurrencies.tsx:11 ~ Cryptocurrencies ~ cryptos:',
-		cryptos,
-	)
 
 	useEffect(() => {
 		const filteredData = cryptoList?.data?.coins.filter((crypto: Crypto) =>
@@ -51,6 +46,7 @@ function Cryptocurrencies({ simplified }: CryptocurrenciesProps) {
 					<Input
 						placeholder='Search Cryptocurrency'
 						onChange={(e) => setSearchTerm(e.target.value)}
+						size='large'
 					/>
 				)}
 			</div>

@@ -6,12 +6,12 @@ import { useGetCryptosQuery } from '../services/cryptoApi'
 import { Cryptocurrencies, News } from '.'
 
 const { Title } = Typography
-const homepageLimit = 10
+const cryptoAmounts = 12
 
 function Homepage() {
 	// Maybe get error TS2554 when calling hook, fix by adding `<any, void>` to `builder.query` in the API definition
 	// Reference: https://github.com/reduxjs/redux-toolkit/issues/1676
-	const { data, isFetching } = useGetCryptosQuery(homepageLimit)
+	const { data, isFetching } = useGetCryptosQuery(cryptoAmounts)
 	const globalStats = data?.data?.stats
 
 	if (isFetching) return 'Loading...'
@@ -61,8 +61,8 @@ function Homepage() {
 					<Link to='/cryptocurrencies'>Show More</Link>
 				</Title>
 			</div>
-            <Cryptocurrencies simplified/>
-            <div className='home-heading-container'>
+			<Cryptocurrencies simplified />
+			<div className='home-heading-container'>
 				<Title level={2} className='home-title'>
 					Latest Crypto News
 				</Title>
@@ -70,7 +70,7 @@ function Homepage() {
 					<Link to='/news'>Show More</Link>
 				</Title>
 			</div>
-            <News />
+			<News simplified />
 		</>
 	)
 }
