@@ -22,7 +22,7 @@ async function fetchCryptoExchange(coinId: string) {
             timePeriod: '24h'
         },
         headers: {
-            'X-RapidAPI-Key': '683e32143cmsh41a008e002a450bp164f2ejsnfb249f83544a',
+            'X-RapidAPI-Key': `${import.meta.env.VITE_RAPID_API_KEY}`,
             'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
         }
     };
