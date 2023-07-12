@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Select, Typography, Row, Col, Card, Avatar } from 'antd'
 import moment from 'moment'
 
@@ -6,6 +6,7 @@ import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 
 import { Crypto } from './Cryptocurrencies'
+import { Loader } from '.'
 
 const { Text, Title, Link } = Typography
 const { Option } = Select
@@ -46,7 +47,7 @@ function News({ simplified }: NewsProps) {
     const { data: cryptoNews, isFetching: cryptoNewsIsFetching } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 12 })
     const { data: cryptoList, isFetching: cryptoIsFetching } = useGetCryptosQuery(100)
 
-    if (cryptoNewsIsFetching || cryptoIsFetching) return 'Loading...'
+    if (cryptoNewsIsFetching || cryptoIsFetching) return <Loader />
 
     return (
         <>

@@ -27,12 +27,12 @@ a:hover {
 }
 
 .navbar {
-	flex: 0.2;
+	flex: 0.14;
 	background-color: rgb(0, 21, 41);
 }
 
 .main {
-	flex: 0.8;
+	flex: 0.88;
 	width: 100%;
 }
 .routes {
@@ -71,7 +71,7 @@ a:hover {
 }
 
 .loader {
-	height: 81vh;
+	height: 84vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -378,4 +378,5 @@ a:hover {
 	flex-direction: column;
 	padding: 20px;
 	align-items: center;
+    margin-top: auto;
 }

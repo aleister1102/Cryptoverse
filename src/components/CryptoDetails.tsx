@@ -2,15 +2,17 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import millify from 'millify'
 import { Col, Row, Typography, Select } from 'antd'
-import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined, LinkOutlined } from '@ant-design/icons'
+import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons'
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import LineChart from './LineChart'
+import { Loader } from '.'
 
 const { Title, Text } = Typography
 const { Option } = Select
 
-interface CryptoDetails {
+export interface CryptoDetails {
+    uuid: string,
     name: string,
     symbol: string,
     price: number;
@@ -20,6 +22,7 @@ interface CryptoDetails {
     allTimeHigh: {
         price: number;
     };
+    iconUrl: string;
     numberOfMarkets: number;
     numberOfExchanges: number;
     supply: {
@@ -45,7 +48,7 @@ function CryptoDetails() {
     const cryptoDetails: CryptoDetails = data?.data?.coin
     const cryptoHistory: CryptoHistory = cryptoHistoryResult?.data
 
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loader />
 
     const time = ['3h', '24h', '7d', '30d', '3m', '1y', '3y', '5y'];
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart, registerables } from 'chart.js'
 Chart.register(...registerables);
@@ -46,6 +45,7 @@ const LineChart = ({ coinName, currentPrice, coinHistory }: LineChartProps) => {
                     <Title level={5} className='current-price'>{coinName} Price: $ {currentPrice}</Title>
                 </Col>
             </Row>
+            {/* Maybe got error core.js:6241. Fix: https://github.com/sgratzl/chartjs-chart-wordcloud/issues/4 */}
             <Line data={data} options={options}></Line>
         </>
     )

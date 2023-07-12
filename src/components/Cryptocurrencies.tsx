@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, Row, Col, Image, Input } from 'antd'
 
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import { Loader } from '.'
 
 export interface Crypto {
     uuid: string
@@ -35,7 +36,7 @@ function Cryptocurrencies({ simplified }: CryptocurrenciesProps) {
         setCryptos(filteredData)
     }, [cryptoList, searchTerm])
 
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loader />
 
     return (
         <>
